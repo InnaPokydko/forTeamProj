@@ -5,8 +5,9 @@ import Notiflix from 'notiflix';
 
 
 
-const favoriteButton = document.querySelector('.favorite-button');
-const readMoreLink = document.querySelector('.news-card-read-more a');
+const favBtn = document.querySelector('.favorite-button');
+// const readMoreLink = document.querySelector('.news-card-read-more a');
+refs.favBtn.addEventListener('click', addToFavorite);
 
 // Функція для додавання новини до списку збережених новин
 function addToFavorites() {
