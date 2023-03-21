@@ -3,10 +3,11 @@ import { fatchNews } from './js/fetchNews';
 import {onChangeButton} from './js/changeBtn';
 // import Notiflix from 'notiflix';
 // import './css/styles.css';
+import { initFavoriteButton } from './path/to/favorite-button';
 
+const buttonElement = document.querySelector('.favorite-button');
+const favBtn = initFavoriteButton(buttonElement);
 
-
-const favBtn = document.querySelector('.favorite-button');
 // const readMoreLink = document.querySelector('.news-card-read-more a');
 favBtn.addEventListener('click', addToFavorite);
 
