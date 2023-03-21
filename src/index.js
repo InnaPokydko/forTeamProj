@@ -1,19 +1,21 @@
-// import { renderImg } from './js/renderImg';
-// import { fatchImg } from './js/fetchImg';
-import Notiflix from 'notiflix';
+import { renderNews } from './js/renderNews';
+import { fatchNews } from './js/fetchNews';
+import {onChangeButton} from './js/changeBtn';
+// import Notiflix from 'notiflix';
 // import './css/styles.css';
 
 
 
 const favBtn = document.querySelector('.favorite-button');
 // const readMoreLink = document.querySelector('.news-card-read-more a');
-refs.favBtn.addEventListener('click', addToFavorite);
+favBtn.addEventListener('click', addToFavorite);
+
+ // Отримуємо список збережених новин з локального сховища браузера
+ let favorites = JSON.parse(localStorage.getItem(KEY_FAVORITE))|| [];
 
 // Функція для додавання новини до списку збережених новин
 function addToFavorites() {
-  // Отримуємо список збережених новин з локального сховища браузера
-  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
+ 
   // Перевіряємо, чи новина вже додана до списку збережених новин
   const index = favorites.findIndex(item => item.id === news.id);
 
@@ -24,34 +26,19 @@ function addToFavorites() {
       date: new Date()
     });
     // Змінюємо текст кнопки на "RemoveFromFavorite"
-    favoriteButton.textContent = 'RemoveFromFavorite';
+    // favBtn.textContent = 'Remove from favorite';
   } else {
     // Якщо новина вже додана до списку, то видаляємо її
     favorites.splice(index, 1);
     // Змінюємо текст кнопки на "AddToFavorite"
-    favoriteButton.textContent = 'AddToFavorite';
+    // favBtn.textContent = 'Add to favorite';
   }
-
+  
   // Зберігаємо список збережених новин в локальному сховищі браузера
-  localStorage.setItem('favorites', JSON.stringify(favorites));
+  localStorage.setItem(KEY_FAVORITE, JSON.stringify(favorites));
 }
+renderNews(favorites);
+onChangeButton(favorites);
 
-// Функція для додавання новини до списку переглянутих новин
-function addToRead() {
-  // Отримуємо список переглянутих новин з локального сховища браузера
-  let read = JSON.parse(localStorage.getItem('read')) || {};
 
-  // Перевіряємо, чи новина вже додана до списку переглянутих новин
-  const date = read[news.id];
-  if (!date) {
-    // Якщо новина не додана до списку, то додаємо її з поточною датою
-    read[news.id] = new Date();
-  } else {
-    // Якщо новина вже додана до списку, то видаляємо її з поточною датою та додаємо знову з новою датою
-    delete read[news.id];
-    read[news.id] = new Date();
-  }
 
-  // Зберігаємо список переглянутих новин в локальному сховищі браузера
-  localStorage.setItem
-}
