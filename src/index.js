@@ -1,5 +1,7 @@
-import { renderNews } from './js/renderNews';
-import { fatchNews } from './js/fetchNews';
+// export const KEY_FAVORITE = 'favorite';
+
+// import { renderNews } from './js/renderNews';
+// import { fatchNews } from './js/fetchNews';
 import {onChangeButton} from './js/changeBtn';
 // import Notiflix from 'notiflix';
 // import './css/styles.css';
